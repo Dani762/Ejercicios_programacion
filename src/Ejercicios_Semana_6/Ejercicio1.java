@@ -23,7 +23,7 @@ public class Ejercicio1 {
     public static boolean bucle(int[] DatosGuardados, Scanner sc) {
         boolean salir = false;
         int eleccion = 0;
-        while (salir = true) {
+        while (!salir) {
             for (int i = 0, f = 0; i<5;i++, f++) {
                 System.out.println("Número "+DatosGuardados[f] + " en la posición "+i);
 
@@ -35,7 +35,7 @@ public class Ejercicio1 {
                     DatosGuardados = array(sc);
                     break;
                 case 2:
-                    salir = false;
+                    salir = true;
                     System.out.println("Hasta luego");
                     break;
                 default:
