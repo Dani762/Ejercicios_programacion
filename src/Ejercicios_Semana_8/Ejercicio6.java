@@ -45,25 +45,40 @@ public class Ejercicio6 {
 
 
                 case 2:
-                    for (int i = 0; i< garaje1.plazas.length; i++) {
+                    int HuecosLibres = garaje1.plazas.length;
+                    for (int i = 0; i< garaje1.plazas.length; i++, HuecosLibres--) {
                         salirTipo = false;
+                        boolean HuecosLlenos = false;
                         System.out.println("¿De qué marca es el vehículo?");
                         marca = sc.next();
                         tipo = "";
                         while (!salirTipo) {
                             System.out.println("¿Es un coche o un camión? 1.- coche 2.- camión");
                             int elegirTipo = sc.nextInt();
+
+                            while (!HuecosLlenos) {
+
+                                if ((HuecosLibres < 2) && (elegirTipo == 2)) {
+                                    System.out.println("Por favor, introduce un coche. El camión ocupa dos espacios y no hay suficientes.");
+                                    elegirTipo = sc.nextInt();
+                                } else {
+
+
                             switch (elegirTipo) {
                                 case 1:
                                     tipo = "coche";
                                     salirTipo = true;
+                                    HuecosLlenos = true;
                                     break;
                                 case 2:
                                     tipo = "camión";
                                     salirTipo = true;
+                                    HuecosLlenos = true;
                                     break;
                                 default:
                                     System.out.println("Por favor, introduce una elección válida");
+                            }
+                            }
                             }
                         }
                         Coche1 = new Coche(marca, tipo);
